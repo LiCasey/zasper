@@ -177,7 +177,11 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
+<link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/railscasts.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+
 <script>
+    hljs.initHighlightingOnLoad();
     $(document).ready(function () {
         // FitVids - start
         var $postContent = $(".post-full-content");
