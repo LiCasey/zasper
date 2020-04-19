@@ -51,6 +51,12 @@ into the {body} of the default.hbs template --}}
 
     </div>
 </main>
+<script src="//ghost-tools-api.notesandcodes.space/static/gcomment.js"></script>
+<link rel="stylesheet" type="text/css" href="//ghost-tools-api.notesandcodes.space/static/style.css" />
+<script src="https://www.recaptcha.net/recaptcha/api.js?render=6LcDvOoUAAAAAEOPzVe5gsdzbKSTfiSj1MlDzG8i"></script>
+<script>
+    gComment.initCommentTool("#comment", "ghostpage", "{{comment_id}}")
+</script>
 
 {{/post}}
 

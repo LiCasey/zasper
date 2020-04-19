@@ -1,0 +1,64 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header">
+    <div class="outer site-nav-main">
+        <div class="inner">
+            {{> "site-nav"}}
+        </div>
+    </div>
+</header>
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+            <section class="post-full-content">
+                <div class="post-content" style="align-items:flex-start">
+                    <h2>标签云</h2>
+                    {{#get "tags" include="count.posts"}}
+                    <div style="display:flex">
+                        {{#foreach tags}}
+                        <div style="margin:0.5em">
+                            <a href="{{url}}" title="{{name}}"
+                                class="tag tag-{{id}} {{slug}}">{{name}}({{count.posts}})</a>
+                        </div>
+                        {{/foreach}}
+                    </div>
+                    {{/get}}
+                    <hr />
+                    <h2>所有文章</h2>
+                    {{#get "posts"}}
+                        {{#foreach posts}}
+                            <li>{{date published_at format="MM-DD"}} 
+                                {{#link href=(url) class="post-link" activeClass="active"}}
+                                    {{title}}
+                                {{/link}}
+                            </li>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+            </section>
+
+        </article>
+
+    </div>
+</main>
+
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
+</script>
+{{/contentFor}}

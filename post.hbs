@@ -114,16 +114,21 @@ into the {body} of the default.hbs template --}}
                 {{> subscribe-form}}
             {{/if}}
 
-            {{!--
+            
             <section class="post-full-comments">
-                If you want to embed comments, this is a good place to do it!
+                {{!-- <div id="comment"></div> --}}
             </section>
-            --}}
-
+        
         </article>
 
     </div>
 </main>
+<script src="//ghost-tools-api.notesandcodes.space/static/gcomment.js"></script>
+<link rel="stylesheet" type="text/css" href="//ghost-tools-api.notesandcodes.space/static/style.css" />
+<script src="https://www.recaptcha.net/recaptcha/api.js?render=6LcDvOoUAAAAAEOPzVe5gsdzbKSTfiSj1MlDzG8i"></script>
+<script>
+    gComment.initCommentTool("#comment", "ghostpost", "{{comment_id}}")
+</script>
 
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next outer">
@@ -179,7 +184,6 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "scripts"}}
 <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/railscasts.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
-
 <script>
     hljs.initHighlightingOnLoad();
     $(document).ready(function () {

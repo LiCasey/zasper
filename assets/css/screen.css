@@ -1078,6 +1078,11 @@ make sure this only happens on large viewports / desktop-ish devices.
     .post-full-comments,
     .footnotes {
         margin-bottom: 1.28em;
+        
+    }
+    .post-full-comments{
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
